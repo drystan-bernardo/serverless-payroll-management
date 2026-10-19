@@ -1,0 +1,27 @@
+service: php-bref-payroll
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: provided.al2
+  region: us-east-1
+  stage: dev
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+      Resource: '*'
+
+plugins:
+  - serverless-bref-plugin
+
+functions:
+  api:
+    handler: src/handler.php
+    events:
+      - httpApi: '*'
+    layers:
+      - ${bref:layer.php-80-fpm}
+
+# Optional custom domain or other settings can be added here.

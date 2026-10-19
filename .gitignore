@@ -1,0 +1,14 @@
+# Node modules
+timezone
+node_modules/
+# Composer vendor directory
+vendor/
+# AWS credentials files
+*.aws
+*.json
+# Local secret files (exclude the generated key file – user may want to keep it private)
+payroll_deployer_key.json
+# IDE/editor files
+*.log
+.DS_Store
+Thumbs.db
